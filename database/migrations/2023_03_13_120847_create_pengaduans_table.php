@@ -16,11 +16,15 @@ class CreatePengaduansTable extends Migration
         Schema::create('pengaduans', function (Blueprint $table) {
             $table->id();
             $table->foreignId('masyarakat_id');
+            $table->foreignId('petugas_id')->nullable();
+            $table->foreignId('user_id')->nullable();
             $table->string('klasifikasi');
             $table->string('laporan');
             $table->date('tglkejadian');
             $table->string('alamat');
+            $table->string('status');
             $table->string('lampiran')->nullable();
+            $table->string('tanggapan')->nullable();
             $table->timestamps();
         });
     }

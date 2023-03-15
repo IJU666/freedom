@@ -40,7 +40,9 @@ class PengaduanController extends Controller
             "laporan" => "required",
             "masyarakat_id" => "required",
             "tglkejadian" => "required",
+            "status" => "",
             "alamat" => "required",
+            "tanggapan" => "",
             "lampiran" => "image|file|mimes:jpeg,png,jpg|max:20000"
         ]);
         if ($request->file('lampiran')) {

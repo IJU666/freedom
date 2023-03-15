@@ -77,12 +77,12 @@
                                             </td>
                                         </tr>
                                     @endif
+                                    @include('data.lampiran')
                                 @endforeach
 
                             </tbody>
                         </table>
                     </div>
-                    @include('data.lampiran')
                 </section>
             </div>
             <footer class="">

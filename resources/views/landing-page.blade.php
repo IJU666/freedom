@@ -40,6 +40,8 @@
                     @csrf
                     <div class="col-lg-11 mx-auto">
 
+                        <input type="hidden" name="status" value="menunggu">
+
                         <p class="fw-semibold col-lg-10 mx-auto">Klasifikasi Laporan</p>
                         <div class="row col-lg-7 col-10 mx-auto">
                             <div class="bg-white p-3 col-lg-5 col-5 rounded-3 me-3">

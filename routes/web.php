@@ -37,18 +37,24 @@ Route::get('/daftar', function () {
     ]);
 });
 
+Route::get('/lupa-password', function () {
+    return view('auth.forgot-password', [
+        'title' => 'Lupa Kata Sandi'
+    ]);
+});
+
 Route::post('/regis', [AuthController::class, 'register']);
 
 Route::group(['middleware' => ['auth:masyarakat']], function () {
     Route::get('/rincian', function () {
-        return view('data.hasil-user', [
-            'title' => 'Detail Pengaduan',
-            'pengaduans' => Pengaduan::all()
-        ]);
         // return view('data.hasil-user', [
         //     'title' => 'Detail Pengaduan',
-        //     'pengaduans' => Pengaduan::where('id', Auth::guard('masyarakat')->user()->id)
+        //     'pengaduans' => Pengaduan::all()
         // ]);
+        return view('data.hasil-user', [
+            'title' => 'Detail Pengaduan',
+            'pengaduans' => Pengaduan::where('masyarakat_id', Auth::guard('masyarakat')->user()->id)->get()
+        ]);
     });
 });
 

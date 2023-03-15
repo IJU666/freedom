@@ -10,7 +10,7 @@
             </header>
 
             <div class="page-heading">
-                <h3>Data Pengguna</h3>
+                <h3>Data Tanggapan</h3>
             </div>
             <div class="page-content">
                 <section class="row">
