@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\Pengaduan;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\PengaduanController;
@@ -44,16 +45,22 @@ Route::group(['middleware' => ['auth:masyarakat']], function () {
             'title' => 'Detail Pengaduan',
             'pengaduans' => Pengaduan::all()
         ]);
+        // return view('data.hasil-user', [
+        //     'title' => 'Detail Pengaduan',
+        //     'pengaduans' => Pengaduan::where('id', Auth::guard('masyarakat')->user()->id)
+        // ]);
     });
 });
 
-Route::group(['middleware' => ['auth:user,petugas']], function () {
+Route::group(['middleware' => ['auth:user,petugas,masyarakat']], function () {
     Route::get('/pengaduan', function () {
         return view('data.pengaduan', [
             "title" => "Pengaduan",
             'pengaduans' => Pengaduan::all()
         ]);
     });
+
+    // Route::get('/rincian', [Authcontroller::class, 'detail']);
 
     Route::get('/pengguna', function () {
         return view('data.pengguna', [

@@ -45,8 +45,8 @@
                         </a>
 
                     </div>
-                    <div class="text-center mt-4  ">
-                        <button type="submit" class="btn btn-primary col-lg-8 col-10">Masuk</button>
+                    <div class="mx-auto col-lg-10 mt-4" style="height: 12vh;">
+                        <button type="submit" class="btn btn-primary col-lg-12 col-10">Masuk</button>
                     </div>
                 </div>
             </div>

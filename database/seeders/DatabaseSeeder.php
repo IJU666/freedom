@@ -26,19 +26,6 @@ class DatabaseSeeder extends Seeder
         ]);
 
         Masyarakat::create([
-            // $table->id();
-            // $table->string('name');
-            // $table->string('nik');
-            // $table->string('tglahir');
-            // $table->string('kelamin');
-            // $table->string('telp');
-            // $table->string('pekerjaan');
-            // $table->string('username')->unique();
-            // $table->string('email')->unique();
-            // $table->timestamp('email_verified_at')->nullable();
-            // $table->string('password');
-            // $table->rememberToken();
-            // $table->timestamps();
             'name' => 'masyarakat',
             'nik' => '3204051204050001',
             'tglahir' => '12/04/05',

@@ -7,7 +7,7 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav col-lg-7  justify-content-end">
-                <a class="nav-link fw-semibold" aria-current="page" href="#tentang">Tentang Freedom</a>
+                <a class="nav-link fw-semibold" aria-current="page" href="/#tentang">Tentang Freedom</a>
                 <a class="nav-link fw-semibold me-2" href="/rincian">Pengaduan</a>
             </div>
             <div class="navbar-nav col-lg-5 justify-content-end">

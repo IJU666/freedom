@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 
+use App\Models\Pengaduan;
 use App\Models\Masyarakat;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
@@ -111,6 +112,13 @@ class AuthController extends Controller
         //     return redirect('/login');
         // }
     }
+    // public function detail()
+    // {
+    //     return view('data.hasil-user', [
+    //         'title' => 'Detail Pengaduan',
+    //         'details' => Pengaduan::where('id', Auth::guard('masyarakat')->user()->id)
+    //     ]);
+    // }
 
 
     // public function pengaduan(Request $request)

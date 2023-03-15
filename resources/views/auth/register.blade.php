@@ -7,7 +7,7 @@
                 Freedom
             </div>
             <div class="col-lg-6 my-auto text-end">
-                Sudah mempunyai akun? <a href="{{ 'masuk' }}" class="text-decoration-none">Masuk</a>
+                Sudah mempunyai akun? <a href="/login" class="text-decoration-none">Masuk</a>
             </div>
         </div>
         <div class="fs-3 mt-3 fw-semibold text-center">

@@ -7,81 +7,74 @@
 
             <div class="accordion" id="accordionExample">
                 {{-- foreach --}}
-                <div class="accordion-item">
-                    <h2 class="accordion-header" id="headingOne">
-                        <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                            data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-                            Aspirasi
-                        </button>
-                    </h2>
-                    <div id="collapseOne" class="accordion-collapse collapse " aria-labelledby="headingOne"
-                        data-bs-parent="#accordionExample">
-                        <div class="accordion-body">
-                            <div class="col-lg-10 mx-auto">
-                                <div class="row">
-                                    <div class="col-lg-6">
-                                        <h6>Raihan Alfarizi</h6>
+                @foreach ($pengaduans as $pengaduan)
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingOne{{ $pengaduan->id }}">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseOne{{ $pengaduan->id }}" aria-expanded="false"
+                                aria-controls="collapseOne">
+                                {{ $loop->iteration }}. {{ $pengaduan->klasifikasi }}
+                            </button>
+                        </h2>
+                        <div id="collapseOne{{ $pengaduan->id }}" class="accordion-collapse collapse "
+                            aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                <div class="col-lg-10 mx-auto">
+                                    <div class="row">
+                                        <div class="col-lg-6">
+                                            <h6 class="fw-semibold">{{ $pengaduan->masyarakat->name }}</h6>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <h6 class="text-end text-secondary">Tanggal kejadian :
+                                                {{ $pengaduan->tglkejadian }}</h6>
+                                        </div>
                                     </div>
-                                    <div class="col-lg-6">
-                                        <h6 class="text-end text-secondary">Tanggal pelaporan : 2023/04/04</h6>
-                                    </div>
-                                </div>
-                                <div class="my-2">
-                                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aspernatur facilis incidunt
-                                    dolor voluptate veniam cum numquam debitis magni, laborum unde nemo minus cupiditate
-                                    quos sed amet vero omnis tempora officia magnam quae non illum. Vero molestiae
+                                    <div class="mt-5 col-lg-10 mx-auto ">
 
-                                </div>
-                                <div class="row">
-                                    <p class="col-lg-2">status</p>
-                                    <p class="btn btn-secondary" disabled>Di proses</p>
+                                        <label for="isi" class="form-label">Isi Pengaduan</label>
+                                        <textarea name="" id="isi" class="form-control text-center bg-white" placeholder="isi pengaduan" disabled>{{ $pengaduan->laporan }}</textarea>
+                                        <label for="tanggal"></label>
+                                    </div>
+                                    <div class=" col-lg-10 mb-3 mt-2 mx-auto">
+                                        <label for="alamat" class="form-label">Alamat Kejadian</label>
+                                        <textarea name="" id="alamat" class="form-control">{{ $pengaduan->alamat }}</textarea>
+                                    </div>
+                                    <div class="row col-lg-12 mx-auto justify-content-center">
+                                        <div class="row  col-lg-7">
+                                            <div class="col-lg-3 my-auto">
+                                                <p class="col-lg-6 me-2 fw-semibold">Status</p>
+                                            </div>
+                                            <div class="col-lg-6 my-auto">
+                                                <p class="btn btn-secondary" disabled>Di proses</p>
+                                            </div>
+                                        </div>
+                                        <div class="row  col-lg-5">
+                                            <div class="col-lg-4 my-auto ">
+                                                <p class="col-lg-6 me-2 my-auto fw-semibold">Lampiran</p>
+                                            </div>
+                                            <div class="col-lg-7 ">
+                                                <a href="" data-bs-toggle="modal"
+                                                    data-bs-target="#exampleModal{{ $pengaduan->id }}"><img
+                                                        src="{{ asset('/storage/' . $pengaduan->lampiran) }}"
+                                                        class="col-lg-8 rounded-3" alt=""></a><br><small
+                                                    class="col-lg-12">klik
+                                                    untuk melihat</small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="text-center my-4 col-lg-3 mx-auto fs-6 border-bottom border-3">
+                                        Tanggapan
+                                    </div>
+                                    <div class="col-lg-10 mx-auto">
+                                        <textarea name="" id="" placeholder="Belum ada tanggapan" class="bg-white form-control " disabled></textarea>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
+                    @include('data.lampiran')
+                @endforeach
                 {{-- endforeach --}}
-
-                <div class="accordion-item">
-                    <h2 class="accordion-header" id="headingOne">
-                        <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                            data-bs-target="#pengaduan" aria-expanded="false" aria-controls="collapseOne">
-                            Pengaduan
-                        </button>
-                    </h2>
-                    <div id="pengaduan" class="accordion-collapse collapse " aria-labelledby="headingOne"
-                        data-bs-parent="#accordionExample">
-                        <div class="accordion-body">
-                            <div class="col-lg-10 mx-auto">
-                                <div class="row">
-                                    <div class="col-lg-6">
-                                        <h6>Raihan Alfarizi</h6>
-                                    </div>
-                                    <div class="col-lg-6">
-                                        <h6 class="text-end text-secondary">Tanggal pelaporan : 2023/04/04</h6>
-                                    </div>
-                                </div>
-                                <div class="my-2">
-                                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aspernatur facilis incidunt
-                                    dolor voluptate veniam cum numquam debitis magni, laborum unde nemo minus cupiditate
-                                    quos sed amet vero omnis tempora officia magnam quae non illum. Vero molestiae
-                                    perspiciatis vitae pariatur accusamus quidem quod accusantium, fuga eos quae quis natus
-                                    cumque ipsam, rem doloremque fugit ullam, facere quisquam architecto expedita amet.
-                                    Atque, voluptatem. Voluptatibus labore maiores veritatis quibusdam consectetur atque
-                                    eaque commodi ipsum libero, inventore eius magni tempora possimus. Incidunt architecto
-                                    eum praesentium quibusdam culpa tempore similique error magnam accusamus est reiciendis
-                                    dolorem, consequatur quia accusantium rem, laboriosam facilis et autem quam!
-                                </div>
-
-                                <div>
-
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
             </div>
 
         </div>
