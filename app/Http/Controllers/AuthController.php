@@ -49,7 +49,7 @@ class AuthController extends Controller
             return redirect()->intended('/');
         }
 
-        return back();
+        return back()->with('loginerror', 'Gagal Masuk');
     }
 
     public function keluar(Request $request)

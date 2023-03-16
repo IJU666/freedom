@@ -17,6 +17,12 @@
                 Selamat Datang
             </div>
             <!-- Session Status -->
+            @if (session()->has('loginerror'))
+                <div class="alert alert-danger alert-dismissible fade show col-lg-10 mx-auto" role="alert">
+                    {{ session('loginerror') }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                </div>
+            @endif
 
 
             <div class="col-lg-7 mt-5 mx-auto">
