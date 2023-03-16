@@ -5,7 +5,8 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\PengaduanController;
-
+use App\Models\Masyarakat;
+use App\Models\Petugas;
 
 /*
 |--------------------------------------------------------------------------
@@ -67,17 +68,29 @@ Route::group(['middleware' => ['auth:user,petugas,masyarakat']], function () {
         ]);
     });
 
+
+    Route::get('/petugas', function () {
+        return view('data.petugas', [
+            "title" => "Pengguna",
+            // "judul" => "Petugas",
+            'petugas' => Petugas::all()
+        ]);
+    });
+
     // Route::get('/rincian', [Authcontroller::class, 'detail']);
 
-    Route::get('/pengguna', function () {
+    Route::get('/masyarakat', function () {
         return view('data.pengguna', [
-            "title" => "Pengguna"
+            "title" => "Pengguna",
+            // "judul" => "Masyarakat",
+            'rakyats' => Masyarakat::all()
         ]);
     });
 
     Route::get('/hasil', function () {
         return view('data.hasil', [
             "title" => "Hasil Pengaduan",
+            // "judul" => "Hasil ",
             'pengaduans' => Pengaduan::all()
         ]);
     });

@@ -77,7 +77,8 @@
                                     style="height: 125px;"value="{{ old('alamat') }}">{{ old('alamat') }}</textarea>
                                 <label for="alamat" class="ms-2">Masukan alamat lengkap kejadian</label>
                             </div>
-                            <input type="hidden" name="tanggapan" value="Menunggu">
+                            <input type="hidden" name="status" value="Menunggu">
+                            <input type="hidden" name="tanggapan" value="">
                             <div class="col-lg-6">
                                 <div class="col-lg-12 col-11 ">
                                     <label for="tgl" class="form-text">Masukan tanggal kejadian</label>

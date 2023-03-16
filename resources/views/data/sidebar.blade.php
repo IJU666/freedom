@@ -27,11 +27,26 @@
                     </a>
                 </li>
                 @if (Auth::guard('user')->check())
-                    <li class="sidebar-item {{ $title === 'Pengguna' ? 'active' : '' }} ">
+                    {{-- <li class="sidebar-item {{ $title === 'Pengguna' ? 'active' : '' }} ">
                         <a href="/pengguna" class='sidebar-link'>
                             <i class="bi bi-person-badge-fill"></i>
                             <span>Data Pengguna</span>
                         </a>
+                    </li> --}}
+
+                    <li class="sidebar-item  has-sub {{ $title === 'Pengguna' ? 'active' : '' }}">
+                        <a href="#" class='sidebar-link'>
+                            <i class="bi bi-collection-fill"></i>
+                            <span>Data Pengguna</span>
+                        </a>
+                        <ul class="submenu ">
+                            <li class="submenu-item ">
+                                <a href="/masyarakat">Masyarakat</a>
+                            </li>
+                            <li class="submenu-item ">
+                                <a href="/petugas">Petugas</a>
+                            </li>
+                        </ul>
                     </li>
                 @endif
                 <li class="sidebar-item {{ $title === 'Hasil Pengaduan' ? 'active' : '' }} ">

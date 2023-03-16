@@ -17,6 +17,7 @@ class Petugas extends Authenticatable
      *
      * @var array<int, string>
      */
+    protected $table = 'petugas';
     protected $guarded = ['id'];
 
     /**
