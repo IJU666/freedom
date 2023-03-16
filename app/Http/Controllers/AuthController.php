@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Pengaduan;
 use App\Models\Masyarakat;
+use App\Models\Petugas;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -105,6 +106,36 @@ class AuthController extends Controller
 
         Masyarakat::create($data);
         return redirect('/login');
+
+        // if ($data) {
+        //     return redirect('/login');
+        // } else {
+        //     return redirect('/login');
+        // }
+    }
+
+    public function tambah(Request $request)
+    {
+        // dd($request->all());
+        $data = $request->validate([
+            'name' => 'required',
+            'nik' => 'required|unique:petugas',
+            'tglahir' => 'required',
+            'jk' => 'required',
+            'telp' => 'required',
+            'username' => 'required|unique:petugas',
+            'email' => 'required|unique:petugas',
+            'password' => 'min:6|required_with:password_confirmation|same:password_confirmation',
+            'password_confirmation' => 'min:6',
+            // 'remember_token' => Str::random(10)
+        ]);
+
+
+        $data['password'] = Hash::make($data['password']);
+
+
+        Petugas::create($data);
+        return redirect('/petugas');
 
         // if ($data) {
         //     return redirect('/login');

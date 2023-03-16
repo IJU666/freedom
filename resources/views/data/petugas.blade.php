@@ -40,6 +40,9 @@
                             <th scope="col">No</th>
                             <th scope="col">Nama</th>
                             <th scope="col">email</th>
+                            <th scope="col">Jenis Kelamin</th>
+                            <th scope="col">NIK</th>
+                            <th scope="col">No telp</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -48,6 +51,9 @@
                                 <td>{{ $loop->iteration }}</td>
                                 <td>{{ $item->name }}</td>
                                 <td>{{ $item->email }}</td>
+                                <td>{{ $item->jk }}</td>
+                                <td>{{ $item->nik }}</td>
+                                <td>{{ $item->notelp }}</td>
                             </tr>
                         @endforeach
                     </tbody>

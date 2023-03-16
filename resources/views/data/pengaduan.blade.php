@@ -12,6 +12,7 @@
             </header>
 
             <div class="page-heading">
+                <p>{{ $title1 }}</p>
                 <h3>Data Pengaduan</h3>
             </div>
 
@@ -48,7 +49,7 @@
                         @foreach ($pengaduans as $pengaduan)
                             @if ($pengaduan)
                                 <tr>
-                                    <td>{{ $loop->iteration }}</td>
+                                    <td>{{ $pengaduan->created_at }}</td>
                                     <td>{{ $pengaduan->masyarakat->name }}</td>
                                     <td>{{ $pengaduan->klasifikasi }}</td>
                                     <td>{{ $pengaduan->laporan }}</td>
@@ -83,7 +84,6 @@
                             @endif
                             @include('data.lampiran')
                         @endforeach
-
                     </tbody>
                 </table>
             </div>

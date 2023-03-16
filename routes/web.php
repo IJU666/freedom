@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\PengaduanController;
+use App\Http\Controllers\PetugasController;
 use App\Models\Masyarakat;
 use App\Models\Petugas;
 
@@ -61,13 +62,14 @@ Route::group(['middleware' => ['auth:masyarakat']], function () {
 });
 
 Route::group(['middleware' => ['auth:user,petugas,masyarakat']], function () {
-    Route::get('/pengaduan', function () {
-        return view('data.pengaduan', [
-            "title" => "Pengaduan",
-            'pengaduans' => Pengaduan::all()
-        ]);
-    });
-
+    // Route::get('/pengaduan', function () {
+    //     // $pengaduans = Pengaduan::all();
+    //     return view('data.pengaduan', compact('pengaduans','title1'), [
+    //         "title" => "Pengaduan",
+    //         'pengaduans' => Pengaduan::all()
+    //     ]);
+    // });
+    Route::resource('/pengaduan', PengaduanController::class);
 
     Route::get('/petugas', function () {
         return view('data.petugas', [
@@ -78,7 +80,10 @@ Route::group(['middleware' => ['auth:user,petugas,masyarakat']], function () {
     });
 
     Route::get('/cetak', function () {
-        return view('data.cetak-pengaduan', [
+        $title1 = "Laporan Pengaduan dari";
+        $pengaduan2 = Pengaduan::count();
+        $pengaduans = Pengaduan::orderBy('created_at', 'desc')->get();
+        return view('data.cetak-pengaduan', compact('pengaduans','pengaduan2','title1'), [
             "title" => "Pengguna",
             // "judul" => "Petugas",
             'pengaduans' => Pengaduan::all()
@@ -96,6 +101,7 @@ Route::group(['middleware' => ['auth:user,petugas,masyarakat']], function () {
     });
 
     Route::get('/cetak-laporan', [PengaduanController::class, 'periodecetak']);
+    Route::post('/daftar-petugas', [AuthController::class, 'tambah']);
 
     Route::get('/hasil', function () {
         return view('data.hasil', [

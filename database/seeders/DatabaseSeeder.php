@@ -40,6 +40,10 @@ class DatabaseSeeder extends Seeder
 
         Petugas::create([
             'name' => 'petugas',
+            'jk' => 'Laki - Laki',
+            'nik' => '320405120304',
+            'notelp' => '0857977525252',
+            'username' => 'petugas',
             'email' => 'petugas@gmail.com',
             'password' => Hash::make('password'),
             'remember_token' => Str::random(10)

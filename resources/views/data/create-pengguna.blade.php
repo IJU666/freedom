@@ -14,28 +14,23 @@
             </div>
             <div class="page-content">
                 <section class="row col-lg-10 mx-auto">
-                    <form method="POST" action="">
+                    <form method="post" action="/daftar-petugas">
                         @csrf
                         <div class=" col-lg-12 mx-auto">
                             <div class="row mx-auto">
                                 <div class="col-lg-6">
-                                    <label for="nama" class="form-text">Nama Lengkap</label>
-                                    <input type="text" name="name" id="nama" class="form-control"
-                                        placeholder="Masukan Nama Lengkap" :value="old('name')" required autofocus>
+                                    <label for="name" class="form-text">Nama Lengkap</label>
+                                    <input type="text" name="name" id="name" class="form-control"
+                                        placeholder="Masukan Nama Lengkap" value="{{ old('name') }}" required autofocus>
                                 </div>
                                 <div class="col-lg-6">
                                     <label for="nik" class="form-text">Nomor Induk Kependudukan (NIK)</label>
                                     <input type="number" name="nik" id="nik" class="form-control col-lg-5"
-                                        :value="old('nik')" placeholder="Masukan Nomor Induk Kependudukan" required>
-                                </div>
-                                <div class="col-lg-6 my-2">
-                                    <label for="tglahir" class="form-text">Tanggal Lahir</label>
-                                    <input type="date" name="tglahir" id="tglahir" class="form-control col-lg-5"
-                                        :value="old('tglahir')" placeholder="Masukan Nomor Induk Kependudukan" required>
+                                    value="{{ old('nik') }}" placeholder="Masukan Nomor Induk Kependudukan" required>
                                 </div>
                                 <div class="col-lg-6 my-2">
                                     <label for="jk" class="form-text">Jenis Kelamin</label>
-                                    <select name="jk" id="jk" class="form-select" :value="old('jk')">
+                                    <select name="jk" id="jk" class="form-select" value="{{ old('jk') }}">
                                         <option selected>Pilih jenis kelamin</option>
                                         <option value="Laki - laki">Laki - laki</option>
                                         <option value="Perempuan">Perempuan</option>
@@ -44,23 +39,17 @@
                                 <div class="col-lg-6">
                                     <label for="notelp" class="form-text">Nomor Telepon Aktif</label>
                                     <input type="number" name="notelp" id="notelp" class="form-control col-lg-5"
-                                        :value="old('notelp')" placeholder="Masukan Nomor Telepon" required>
-                                </div>
-
-                                <div class="col-lg-6">
-                                    <label for="pekerjaan" class="form-text">Pekerjaan</label>
-                                    <input type="text" name="pekerjaan" id="pekerjaan" class="form-control col-lg-5"
-                                        :value="old('pekerjaan')" placeholder="Masukan Pekerjaan" required>
+                                    value="{{ old('notelp') }}" placeholder="Masukan Nomor Telepon" required>
                                 </div>
                                 <div class="col-lg-6 my-2">
                                     <label for="username" class="form-text">Nama Pengguna</label>
                                     <input type="text" name="username" id="username" class="form-control"
-                                        :value="old('username')" placeholder="Masukan Nama Pengguna" required>
+                                    value="{{ old('username') }}" placeholder="Masukan Nama Pengguna" required>
                                 </div>
                                 <div class="col-lg-6 my-2">
                                     <label for="email" class="form-text">Masukan Email Pengguna</label>
                                     <input type="email" name="email" id="email" class="form-control"
-                                        :value="old('email')" placeholder="Masukan Email Aktif" required>
+                                    value="{{ old('email') }}" placeholder="Masukan Email Aktif" required>
                                 </div>
                                 <div class="col-lg-6">
                                     <label for="password" class="form-text">Masukan Kata Sandi</label>
@@ -72,16 +61,8 @@
                                     <input type="password" name="password_confirmation" id="password_confirmation"
                                         class="form-control" placeholder="Ulang Kata Sandi" required>
                                 </div>
-                                <div class="col-lg-6 my-2">
-                                    <label for="check" class="form-text">Role</label><br>
-                                    {{-- @foreach ($roles as $role)
-                                        <label for="check-{{ $role->id }}" class="form-text">{{ $role->name }}</label>
-                                        <input type="checkbox" name="role[]" class="btn"
-                                            id="check-{{ $role->id }}" value="{{ $role->name }}">
-                                    @endforeach --}}
-                                </div>
                                 <div class="border-top border-2 py-3">
-                                    <button type="submit" name="submit" class="btn btn-primary float-end">Simpan</button>
+                                    <button type="submit" class="btn btn-primary float-end">Simpan</button>
                                     <a href="{{ 'pengguna' }}" class="btn btn-danger float-end mx-2"
                                         aria-label="Close">Batal</a>
                                 </div>

@@ -7,7 +7,8 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form action="/cetak-laporan" method="get">
+                <form role="form" action="/cetak" method="get">
+                    {{-- @csrf --}}
                     <div class="row">
                         <div class="col-lg-12 mt-3">
                             <label for="label">Tanggal Awal</label>
@@ -17,7 +18,7 @@
                         </div>
                         <div class="col-lg-12 mt-3">
                             <label for="label">Tanggal Akhir</label>
-                            <input type="date" name="" id="tanggal_akhir" class="form-control"
+                            <input type="date" name="tanggal_akhir" id="tanggal_akhir" class="form-control"
                                 value="{{ date('Y-m-d') }}" autocomplete="off">
                         </div>
                     </div>

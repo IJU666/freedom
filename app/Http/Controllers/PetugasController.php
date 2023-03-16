@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Str;
 use App\Models\Petugas;
 use Illuminate\Http\Request;
 
@@ -35,7 +36,24 @@ class PetugasController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->validate([
+            'name' => 'required',
+            'nik' => 'required|unique:petugas',
+            'tglahir' => 'required',
+            'jk' => 'required',
+            'telp' => 'required',
+            'username' => 'required|unique:petugas',
+            'email' => 'required|unique:petugas',
+            'password' => 'min:6|required_with:password_confirmation|same:password_confirmation',
+            'password_confirmation' => 'min:6',
+            'remember_token' => Str::random(10)
+        ]);
+
+        $data['password'] = Hash::make($data['password']);
+
+        Petugas::create($data);
+        return redirect('/petugas');
+
     }
 
     /**
