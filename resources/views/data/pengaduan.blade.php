@@ -20,9 +20,11 @@
                     <form action="" method="post" class="">
                         @if (Auth::guard('user')->check())
                             <div class="text-end">
-                                <a href="/cetakpengaduan" class="btn btn-outline-primary float-end ">
-                                    Cetak Laporan
-                                </a>
+                                <!-- Button trigger modal -->
+                                <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal"
+                                    data-bs-target="#example">
+                                    Cetak Pengaduan
+                                </button>
                             </div>
                         @endif
             </div>
@@ -87,6 +89,7 @@
             </div>
             </section>
         </div>
+        @include('data.modal-cetak')
         <footer class="">
 
         </footer>

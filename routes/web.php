@@ -77,6 +77,14 @@ Route::group(['middleware' => ['auth:user,petugas,masyarakat']], function () {
         ]);
     });
 
+    Route::get('/cetak', function () {
+        return view('data.cetak-pengaduan', [
+            "title" => "Pengguna",
+            // "judul" => "Petugas",
+            'pengaduans' => Pengaduan::all()
+        ]);
+    });
+
     // Route::get('/rincian', [Authcontroller::class, 'detail']);
 
     Route::get('/masyarakat', function () {
@@ -86,6 +94,8 @@ Route::group(['middleware' => ['auth:user,petugas,masyarakat']], function () {
             'rakyats' => Masyarakat::all()
         ]);
     });
+
+    Route::get('/cetak-laporan', [PengaduanController::class, 'periodecetak']);
 
     Route::get('/hasil', function () {
         return view('data.hasil', [

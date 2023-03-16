@@ -105,4 +105,18 @@ class PengaduanController extends Controller
     {
         //
     }
+
+    public function periodecetak(Request $request)
+    {
+        try {
+            $tanggalawal = $request->tanggal_awal;
+            $tanggalakhir = $request->tanggal_akhir;
+
+            $pengaduan1 = Pengaduan::whereDate('created_at', '<=', $tanggalawal)->whereDate('created_at', '<=', $tanggalakhir)->orderBy('created_at', 'desc')->get();
+            $pengaduan2 = Pengaduan::whereDate('created_at', '<=', $tanggalakhir)->whereDate('created_at', '<=', $tanggalawal)->orderBy('created_at', 'desc')->get();
+            return view('data.cetak-pengaduan', compact('pengaduan1', 'pengaduan2', []));
+        } catch (\Exception $e) {
+            return redirect('/cetak');
+        }
+    }
 }
