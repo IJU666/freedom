@@ -21,7 +21,8 @@ use App\Http\Controllers\PengaduanController;
 
 Route::get('/', function () {
     return view('landing-page', [
-        'title' => 'Beranda'
+        'title' => 'Beranda',
+        'pengaduans' => Pengaduan::count()
     ]);
 });
 
@@ -87,9 +88,12 @@ Route::group(['middleware' => ['auth:user,petugas,masyarakat']], function () {
         ]);
     });
 
-    Route::get('/tanggapan', function () {
-        return view('data.create-tanggapan', [
-            "title" => "Pengaduan"
-        ]);
-    });
+    Route::get('/tanggapan{id}', [PengaduanController::class, 'edit']);
+    Route::post('/create-tanggapan{id}', [PengaduanController::class, 'update']);
+
+    // Route::get('/tanggapan', function () {
+    //     return view('data.create-tanggapan', [
+    //         "title" => "Pengaduan"
+    //     ]);
+    // });
 });

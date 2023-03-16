@@ -37,7 +37,7 @@
                                     </div>
                                     <div class=" col-lg-10 mb-3 mt-2 mx-auto">
                                         <label for="alamat" class="form-label">Alamat Kejadian</label>
-                                        <textarea name="" id="alamat" class="form-control">{{ $pengaduan->alamat }}</textarea>
+                                        <textarea name="" id="alamat" class="form-control bg-white text-center" disabled>{{ $pengaduan->alamat }}</textarea>
                                     </div>
                                     <div class="row col-lg-12 mx-auto justify-content-center">
                                         <div class="row  col-lg-7">
@@ -45,7 +45,15 @@
                                                 <p class="col-lg-6 me-2 fw-semibold">Status</p>
                                             </div>
                                             <div class="col-lg-6 my-auto">
-                                                <p class="btn btn-secondary" disabled>Di proses</p>
+                                                @if ($pengaduan->status == 'Menunggu')
+                                                    <p class="btn btn-secondary" disabled>{{ $pengaduan->status }}</p>
+                                                @elseif ($pengaduan->status == 'Diproses')
+                                                    <p class="btn btn-primary" disabled>{{ $pengaduan->status }}</p>
+                                                @elseif ($pengaduan->status == 'Selesai')
+                                                    <p class="btn btn-success" disabled>{{ $pengaduan->status }}</p>
+                                                @elseif ($pengaduan->status == 'Ditolak')
+                                                    <p class="btn btn-danger" disabled>{{ $pengaduan->status }}</p>
+                                                @endif
                                             </div>
                                         </div>
                                         <div class="row  col-lg-5">
@@ -66,7 +74,7 @@
                                         Tanggapan
                                     </div>
                                     <div class="col-lg-10 mx-auto">
-                                        <textarea name="" id="" placeholder="Belum ada tanggapan" class="bg-white form-control " disabled></textarea>
+                                        <textarea name="" id="" placeholder="Belum ada tanggapan" class="bg-white form-control " disabled>{{ $pengaduan->tanggapan }}</textarea>
                                     </div>
                                 </div>
                             </div>

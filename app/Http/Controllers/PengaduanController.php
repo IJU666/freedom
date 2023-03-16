@@ -71,7 +71,14 @@ class PengaduanController extends Controller
      */
     public function edit($id)
     {
-        //
+        $record = Pengaduan::findorfail($id);
+        return view(
+            'data.create-tanggapan',
+            [
+                "title" => "Pengaduan"
+            ],
+            compact('record')
+        );
     }
 
     /**
@@ -83,7 +90,9 @@ class PengaduanController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $record = Pengaduan::findorfail($id);
+        $record->update($request->all());
+        return redirect('/hasil');
     }
 
     /**

@@ -42,7 +42,6 @@
                         </div>
                     </form>
                     <div class="rounded-3 mt-4 py-3 shadow" style="background-color: #f3f3f3;">
-
                         <table class="table table-striped">
                             <thead>
                                 <tr class="">

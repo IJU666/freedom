@@ -15,7 +15,7 @@
             <div class="page-content">
                 <section class="row">
                     <div class="col-lg-10 mx-auto">
-                        <form action="" method="post">
+                        <form action="/create-tanggapan{{ $record->id }}" method="post">
                             @csrf
                             <div class="mb-3">
                                 <textarea class="form-control" name="tanggapan" id="laporan" rows="5" placeholder="Masukan Tanggapan"></textarea>
@@ -24,6 +24,7 @@
                                 <div class="col-lg-6">
                                     <label for="status" class="form-text">Status Pengaduan</label>
                                     <select name="status" id="status" class="form-select">
+                                        <option value="{{ $record->status }}">{{ $record->status }}</option>
                                         <option value="Menunggu">Menunggu</option>
                                         <option value="Diproses">Diproses</option>
                                         <option value="Selesai">Selesai</option>

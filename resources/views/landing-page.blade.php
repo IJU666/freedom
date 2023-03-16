@@ -40,7 +40,6 @@
                     @csrf
                     <div class="col-lg-11 mx-auto">
 
-                        <input type="hidden" name="status" value="menunggu">
 
                         <p class="fw-semibold col-lg-10 mx-auto">Klasifikasi Laporan</p>
                         <div class="row col-lg-7 col-10 mx-auto">
@@ -78,6 +77,7 @@
                                     style="height: 125px;"value="{{ old('alamat') }}">{{ old('alamat') }}</textarea>
                                 <label for="alamat" class="ms-2">Masukan alamat lengkap kejadian</label>
                             </div>
+                            <input type="hidden" name="tanggapan" value="Menunggu">
                             <div class="col-lg-6">
                                 <div class="col-lg-12 col-11 ">
                                     <label for="tgl" class="form-text">Masukan tanggal kejadian</label>
@@ -91,7 +91,6 @@
                                 </div>
                             </div>
                         </div>
-
                         <div class="text-center mt-4">
                             @if (!Auth::guard('masyarakat')->check())
                                 <a class="btn btn-primary col-lg-5 col-10" id="liveAlertBtn">Kirim</a>
@@ -109,7 +108,7 @@
     </div>
     <div class="bg-primary py-2  text-white mt-5 col-lg-12">
         <h5 class="text-center">Jumlah pengaduan saat ini</h5>
-        <h2 class="text-center">12</h2>
+        <h2 class="text-center">{{ $pengaduans }}</h2>
     </div>
     @include('layout.footer-user')
 @endsection
