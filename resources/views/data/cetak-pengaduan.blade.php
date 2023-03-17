@@ -11,12 +11,12 @@
                 <th scope="col" class="col-lg-2">Tanggal</th>
                 <th scope="col" class="text-center ">Status</th>
                 <th scope="col" class="text-center col-lg-2">Lampiran</th>
-                <th scope="col" class="col-lg-2">Aksi</th>
+                <th scope="col" class="text-center col-lg-2">Tanggapan</th>
             </tr>
         </thead>
         <tbody>
             @foreach ($pengaduans as $pengaduan)
-                @if ($pengaduan)
+                @if ($pengaduan->tanggapan)
                     <tr>
                         <td>{{ $pengaduan->created_at }}</td>
                         <td>{{ $pengaduan->masyarakat->name }}</td>
@@ -38,14 +38,11 @@
                             <td class="text-primary">{{ $pengaduan->status }}</td>
                         @endif
 
-                        <td class="text-center"><img src="{{ asset('/storage/' . $pengaduan->lampiran) }}" class="col-lg-8"
+                        <td class="text-center"><img src="{{ asset('/storage/' . $pengaduan->lampiran) }}" width="100px"
                                 alt="">
                         </td>
-                        <td class="col-12">
-                            <a class="btn btn-primary col-12" href="/tanggapan{{ $pengaduan->id }}">
-                                <i class="fa-solid fa-pen-to-square"></i>
-                            </a>
-                        </td>
+                        <td>{{ $pengaduan->tanggapan }}</td>
+
                     </tr>
                 @endif
             @endforeach

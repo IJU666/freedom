@@ -16,6 +16,15 @@ use Illuminate\Support\Facades\Hash;
 class AuthController extends Controller
 {
 
+    public function cetakPertanggal($tglAwal, $tglAkhir)
+    {
+        $pengaduans = Pengaduan::all()->whereBetween('created_at', [$tglAwal, $tglAkhir]);
+        return view('data.cetak-pengaduan', [
+            'title' => 'cetak',
+            'pengaduans' => $pengaduans
+        ]);
+    }
+
     public function masuk()
     {
         return view('auth.login', [
@@ -114,35 +123,6 @@ class AuthController extends Controller
         // }
     }
 
-    public function tambah(Request $request)
-    {
-        // dd($request->all());
-        $data = $request->validate([
-            'name' => 'required',
-            'nik' => 'required|unique:petugas',
-            'tglahir' => 'required',
-            'jk' => 'required',
-            'telp' => 'required',
-            'username' => 'required|unique:petugas',
-            'email' => 'required|unique:petugas',
-            'password' => 'min:6|required_with:password_confirmation|same:password_confirmation',
-            'password_confirmation' => 'min:6',
-            // 'remember_token' => Str::random(10)
-        ]);
-
-
-        $data['password'] = Hash::make($data['password']);
-
-
-        Petugas::create($data);
-        return redirect('/petugas');
-
-        // if ($data) {
-        //     return redirect('/login');
-        // } else {
-        //     return redirect('/login');
-        // }
-    }
     // public function detail()
     // {
     //     return view('data.hasil-user', [

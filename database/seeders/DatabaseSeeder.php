@@ -28,7 +28,7 @@ class DatabaseSeeder extends Seeder
         Masyarakat::create([
             'name' => 'masyarakat',
             'nik' => '3204051204050001',
-            'tglahir' => '12/04/05',
+            'tglahir' => '12/04/2005',
             'kelamin' => 'Laki - Laki',
             'telp' => '085797752287',
             'pekerjaan' => 'Pengusaha',
@@ -40,10 +40,8 @@ class DatabaseSeeder extends Seeder
 
         Petugas::create([
             'name' => 'petugas',
-            'jk' => 'Laki - Laki',
-            'nik' => '320405120304',
-            'notelp' => '0857977525252',
-            'username' => 'petugas',
+            'jk' => 'Laki - laki',
+            'telp' => '085797752525',
             'email' => 'petugas@gmail.com',
             'password' => Hash::make('password'),
             'remember_token' => Str::random(10)

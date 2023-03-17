@@ -71,24 +71,10 @@ Route::group(['middleware' => ['auth:user,petugas,masyarakat']], function () {
     // });
     Route::resource('/pengaduan', PengaduanController::class);
 
-    Route::get('/petugas', function () {
-        return view('data.petugas', [
-            "title" => "Pengguna",
-            // "judul" => "Petugas",
-            'petugas' => Petugas::all()
-        ]);
-    });
+    Route::get('/petugas', [PetugasController::class, 'index']);
+    Route::post('/daftarkeun', [PetugasController::class, 'store']);
 
-    Route::get('/cetak', function () {
-        $title1 = "Laporan Pengaduan dari";
-        $pengaduan2 = Pengaduan::count();
-        $pengaduans = Pengaduan::orderBy('created_at', 'desc')->get();
-        return view('data.cetak-pengaduan', compact('pengaduans','pengaduan2','title1'), [
-            "title" => "Pengguna",
-            // "judul" => "Petugas",
-            'pengaduans' => Pengaduan::all()
-        ]);
-    });
+    Route::get('/cetak/{tglAwal}/{tglAkhir}', [AuthController::class, 'cetakPertanggal']);
 
     // Route::get('/rincian', [Authcontroller::class, 'detail']);
 
@@ -101,7 +87,6 @@ Route::group(['middleware' => ['auth:user,petugas,masyarakat']], function () {
     });
 
     Route::get('/cetak-laporan', [PengaduanController::class, 'periodecetak']);
-    Route::post('/daftar-petugas', [AuthController::class, 'tambah']);
 
     Route::get('/hasil', function () {
         return view('data.hasil', [

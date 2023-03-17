@@ -22,9 +22,6 @@
                                 </a>
                             </div> --}}
                         <div class="d-flex float-end">
-                            <a href="/cetakpengguna" class="btn btn-outline-primary me-2">
-                                Cetak Laporan
-                            </a>
 
                             <a href="/tambah" class="btn btn-primary {{ $title === 'Cetak Pengguna' ? 'active' : '' }}">
                                 Tambah Pengguna
@@ -41,7 +38,6 @@
                             <th scope="col">Nama</th>
                             <th scope="col">email</th>
                             <th scope="col">Jenis Kelamin</th>
-                            <th scope="col">NIK</th>
                             <th scope="col">No telp</th>
                         </tr>
                     </thead>
@@ -52,8 +48,7 @@
                                 <td>{{ $item->name }}</td>
                                 <td>{{ $item->email }}</td>
                                 <td>{{ $item->jk }}</td>
-                                <td>{{ $item->nik }}</td>
-                                <td>{{ $item->notelp }}</td>
+                                <td>{{ $item->telp }}</td>
                             </tr>
                         @endforeach
                     </tbody>

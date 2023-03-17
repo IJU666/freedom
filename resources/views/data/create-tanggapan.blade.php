@@ -18,7 +18,7 @@
                         <form action="/create-tanggapan{{ $record->id }}" method="post">
                             @csrf
                             <div class="mb-3">
-                                <textarea class="form-control" name="tanggapan" id="laporan" rows="5" placeholder="Masukan Tanggapan"></textarea>
+                                <textarea class="form-control" name="tanggapan" id="laporan" rows="5" placeholder="Masukan Tanggapan">{{ $record->tanggapan }}</textarea>
                             </div>
                             <div class="row">
                                 <div class="col-lg-6">
