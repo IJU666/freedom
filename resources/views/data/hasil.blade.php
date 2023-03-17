@@ -34,7 +34,7 @@
                             <th scope="col" class="">Jenis Laporan</th>
                             <th scope="col" class="">Isi Laporan</th>
                             <th scope="col">Alamat</th>
-                            <th scope="col" class="">Tanggal</th>
+                            <th scope="col" class="">Tanggal kejadian</th>
                             <th scope="col" class="text-center">Lampiran</th>
                             <th scope="col">status</th>
                             <th scope="col">tanggapan</th>

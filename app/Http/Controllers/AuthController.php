@@ -18,7 +18,7 @@ class AuthController extends Controller
 
     public function cetakPertanggal($tglAwal, $tglAkhir)
     {
-        $pengaduans = Pengaduan::all()->whereBetween('created_at', [$tglAwal, $tglAkhir]);
+        $pengaduans = Pengaduan::all()->whereBetween('tglkejadian', [$tglAwal, $tglAkhir]);
         return view('data.cetak-pengaduan', [
             'title' => 'cetak',
             'pengaduans' => $pengaduans
