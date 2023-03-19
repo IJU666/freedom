@@ -26,14 +26,12 @@
                         <td>{{ $pengaduan->tglkejadian }}</td>
 
 
-                        @if ($pengaduan->status == 'Menunggu')
+                        @if ($pengaduan->status == 'Belum Selesai')
                             <td class="text-primary">{{ $pengaduan->status }}</td>
                         @elseif ($pengaduan->status == 'Ditolak')
                             <td class="text-danger">{{ $pengaduan->status }}</td>
                         @elseif ($pengaduan->status == 'Selesai')
                             <td class="text-success">{{ $pengaduan->status }}</td>
-                        @elseif ($pengaduan->status == 'Diproses')
-                            <td class="text-warning">{{ $pengaduan->status }}</td>
                         @else()
                             <td class="text-primary">{{ $pengaduan->status }}</td>
                         @endif

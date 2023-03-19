@@ -8,7 +8,7 @@
             </div>
             <div class="col-lg-5 ms-2 align-self-center ">
                 <h3 class="fw-bold ">F R E E D O M</h3>
-                <div class="fs-5 fw-semibold ">Layanan Aspirasi <br> dan Pengaduan Masyarakat
+                <div class="fs-5 fw-semibold ">Layanan Aspirasi <br> dan Pengaduan Masyarakat kampung Lio Warunggede
                     <p class="fs-6 text-secondary">Berani Melapor!</p>
                     <a href="#tentang" class="btn btn-primary col-5">Mulai</a>
                 </div>
@@ -19,8 +19,9 @@
                 <div class="col-lg-6 align-self-center">
                     <div class="col-lg-8 float-end">
                         <h3 class="fw-semibold">Apa itu <br> Freedom?</h3>
-                        <p>Freedom adalah suatu website pelayanan masyarakat untuk membantu masyarakat menyampaikan aspirasi
-                            ataupun pengaduan kepada suatu lembaga berwenang.</p>
+                        <p>Freedom adalah suatu website pelayanan masyarakat untuk membantu masyarakat kampung Lio
+                            Warunggede untuk menyampaikan aspirasi
+                            ataupun pengaduan kepada lembaga daerah.</p>
                         <a href="#lapor" class="btn btn-primary">Lapor Sekarang</a>
                     </div>
                 </div>
@@ -72,21 +73,21 @@
 
 
                         <div class="row">
-                            <div class="form-floating col-lg-6 col-11 mx-auto">
+                            <div class="form-floating col-lg-12 col-11 mx-auto">
                                 <textarea name="alamat" id="alamat" cols="30" rows="10" class="form-control" placeholder="Alamat"
                                     style="height: 125px;"value="{{ old('alamat') }}">{{ old('alamat') }}</textarea>
                                 <label for="alamat" class="ms-2">Masukan alamat lengkap kejadian</label>
                             </div>
-                            <input type="hidden" name="status" value="Menunggu">
+                            <input type="hidden" name="status" value="Belum Selesai">
                             <input type="hidden" name="tanggapan" value="">
-                            <div class="col-lg-6">
-                                <div class="col-lg-12 col-11 ">
+                            <div class="col-lg-12 row mx-auto">
+                                <div class="col-lg-6 col-11 ">
                                     <label for="tgl" class="form-text">Masukan tanggal kejadian</label>
                                     <input type="date" name="tglkejadian" placeholder="Pilih tanggal kejadian"
                                         class="form-control" id="tgl" class="" value="{{ old('tglkejadian') }}">
                                 </div>
-                                <div class=" col-lg-12 col-11">
-                                    <label for="formFile" class="form-text">Masukan Lampiran</label>
+                                <div class=" col-lg-6 col-11">
+                                    <label for="formFile" class="form-text">Masukan Lampiran kejadian</label>
                                     <input class="form-control" name="lampiran" type="file" id="formFile">
                                     <label for="formFile" class="form-text float-end">*format jpg, jpeg, dan png</label>
                                 </div>

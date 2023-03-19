@@ -28,6 +28,13 @@ Route::get('/', function () {
     ]);
 });
 
+Route::get('/hasil-pengaduan', function () {
+    return view('data.seluruh', [
+        'title' => 'Hasil Pengaduan',
+        'pengaduans' => Pengaduan::all()
+    ]);
+});
+
 Route::post('/pengaduan', [PengaduanController::class, 'store']);
 
 Route::get('/login', [AuthController::class, 'masuk'])->middleware('nonauth');

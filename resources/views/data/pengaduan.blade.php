@@ -27,7 +27,8 @@
                                     <th scope="col" class="col-lg-2">Jenis Laporan</th>
                                     <th scope="col" class="col-lg-2">Isi Laporan</th>
                                     <th scope="col">Alamat</th>
-                                    <th scope="col" class="col-lg-2">Tanggal</th>
+                                    <th scope="col" class="col-lg-2">Tanggal Pelaporan</th>
+                                    <th scope="col" class="col-lg-2">Tanggal Kejadian</th>
                                     <th scope="col" class="text-center ">Status</th>
                                     <th scope="col" class="text-center col-lg-2">Lampiran</th>
                                     <th scope="col" class="col-lg-2">Aksi</th>
@@ -42,17 +43,16 @@
                                             <td>{{ $pengaduan->klasifikasi }}</td>
                                             <td>{{ $pengaduan->laporan }}</td>
                                             <td>{{ $pengaduan->alamat }}</td>
+                                            <td>{{ $pengaduan->created_at }}</td>
                                             <td>{{ $pengaduan->tglkejadian }}</td>
 
 
-                                            @if ($pengaduan->status == 'Menunggu')
+                                            @if ($pengaduan->status == 'Belum Selesai')
                                                 <td class="text-primary">{{ $pengaduan->status }}</td>
                                             @elseif ($pengaduan->status == 'Ditolak')
                                                 <td class="text-danger">{{ $pengaduan->status }}</td>
                                             @elseif ($pengaduan->status == 'Selesai')
                                                 <td class="text-success">{{ $pengaduan->status }}</td>
-                                            @elseif ($pengaduan->status == 'Diproses')
-                                                <td class="text-warning">{{ $pengaduan->status }}</td>
                                             @else()
                                                 <td class="text-primary">{{ $pengaduan->status }}</td>
                                             @endif

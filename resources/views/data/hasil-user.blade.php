@@ -25,8 +25,8 @@
                                             <h6 class="fw-semibold">{{ $pengaduan->masyarakat->name }}</h6>
                                         </div>
                                         <div class="col-lg-6">
-                                            <h6 class="text-end text-secondary">Tanggal kejadian :
-                                                {{ $pengaduan->tglkejadian }}</h6>
+                                            <h6 class="text-end text-secondary">Tanggal Laporan :
+                                                {{ $pengaduan->created_at }}</h6>
                                         </div>
                                     </div>
                                     <div class="mt-5 col-lg-10 mx-auto ">
@@ -45,9 +45,7 @@
                                                 <p class="col-lg-6 me-2 fw-semibold">Status</p>
                                             </div>
                                             <div class="col-lg-6 my-auto">
-                                                @if ($pengaduan->status == 'Menunggu')
-                                                    <p class="btn btn-secondary" disabled>{{ $pengaduan->status }}</p>
-                                                @elseif ($pengaduan->status == 'Diproses')
+                                                @if ($pengaduan->status == 'Belum Selesai')
                                                     <p class="btn btn-primary" disabled>{{ $pengaduan->status }}</p>
                                                 @elseif ($pengaduan->status == 'Selesai')
                                                     <p class="btn btn-success" disabled>{{ $pengaduan->status }}</p>

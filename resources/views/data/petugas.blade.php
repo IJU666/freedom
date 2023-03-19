@@ -24,7 +24,7 @@
                         <div class="d-flex float-end">
 
                             <a href="/tambah" class="btn btn-primary {{ $title === 'Cetak Pengguna' ? 'active' : '' }}">
-                                Tambah Pengguna
+                                Tambah Petugas
                             </a>
 
                         </div>

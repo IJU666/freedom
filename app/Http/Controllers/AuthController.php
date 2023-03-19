@@ -96,10 +96,10 @@ class AuthController extends Controller
     {
         $data = $request->validate([
             'name' => 'required',
-            'nik' => 'required|unique:masyarakats',
+            'nik' => 'required|unique:masyarakats|max:16',
             'tglahir' => 'required',
             'kelamin' => 'required',
-            'telp' => 'required',
+            'telp' => 'required|max:12',
             'pekerjaan' => 'required',
             'username' => 'required|unique:masyarakats',
             'email' => 'required|unique:masyarakats',

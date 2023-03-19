@@ -20,10 +20,11 @@ class CreatePengaduansTable extends Migration
             $table->foreignId('user_id')->nullable();
             $table->string('klasifikasi');
             $table->string('laporan');
-            $table->date('tglkejadian');
+            $table->date('tglkejadian')->nullable();
             $table->string('alamat');
             $table->string('status');
             $table->string('lampiran')->nullable();
+            $table->string('foto_tanggapan')->nullable();
             $table->string('tanggapan')->nullable();
             $table->timestamps();
         });

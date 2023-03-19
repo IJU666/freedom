@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Pengaduan;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class PengaduanController extends Controller
 {
@@ -47,11 +48,11 @@ class PengaduanController extends Controller
             "klasifikasi" => "required",
             "laporan" => "required",
             "masyarakat_id" => "required",
-            "tglkejadian" => "required",
-            "status" => "",
-            "alamat" => "required",
+            "tglkejadian" => "",
+            "status" => "required",
             "tanggapan" => "",
-            "lampiran" => "image|file|mimes:jpeg,png,jpg|max:20000"
+            "alamat" => "required",
+            "lampiran" => "image|file|mimes:jpeg,png,jpg|max:20000",
         ]);
         if ($request->file('lampiran')) {
             $data['lampiran'] = $request->file('lampiran')->store('post-image');
@@ -96,12 +97,50 @@ class PengaduanController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+    // public function update(Request $request, Pengaduan $pengaduan)
+    // {
+    //     $rules = [
+    //         "klasifikasi" => "",
+    //         "laporan" => "",
+    //         "masyarakat_id" => "",
+    //         "tglkejadian" => "",
+    //         "status" => "",
+    //         "alamat" => "",
+    //         "foto_tanggapan" => "",
+    //         "tanggapan" => "",
+    //         "lampiran" => "image|file|mimes:jpeg,png,jpg|max:20000",
+    //     ];
+
+    //     $validateData = $request->validate($rules);
+
+    //     if ($request->file('lampiran')) {
+    //         if ($pengaduan->lampiran) {
+    //             Storage::delete($pengaduan->lampiran);
+    //         }
+    //         $validateData['lampiran'] = $request->file('lampiran')->store('post-image');
+    //     }
+
+    //     if ($request->file('foto_tanggapan')) {
+    //         if ($pengaduan->foto_tanggapan) {
+    //             Storage::delete($pengaduan->foto_tanggapan);
+    //         }
+    //         $validateData['foto_tanggapan'] = $request->file('foto_tanggapan')->store('post-image');
+    //     }
+
+    //     Pengaduan::where('id', $pengaduan->id)->update($validateData);
+    //     return redirect('/hasil');
+    // }
     public function update(Request $request, $id)
+
     {
         $record = Pengaduan::findorfail($id);
+        if ($request->file('foto_tanggapan')) {
+            $record['foto_tanggapan'] = $request->file('foto_tanggapan')->store('post-image');
+        }
         $record->update($request->all());
         return redirect('/hasil');
     }
+
 
     /**
      * Remove the specified resource from storage.
